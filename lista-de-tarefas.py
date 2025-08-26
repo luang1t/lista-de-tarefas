@@ -16,7 +16,7 @@ while True:
     match seletor:
         case 1:
             dia_da_semana = input("Digite o dia da semana: ").capitalize().strip()
-            tarefa = input("Digite a tarefa: ").strip().capitalize()
+            tarefa = input("Digite a tarefa: ").strip().lower()
             semana[dia_da_semana].append(tarefa)
             print(f"Tarefa cadastrada no dia {dia_da_semana}.")
         case 2:
@@ -26,7 +26,7 @@ while True:
                     if dia_deletar in semana:
                         print(f"Tarefas da {dia_deletar.lower()} que podem ser deletadas: ")
                         print(semana[dia_deletar])
-                        deletar_tarefa = input("Digite toda a tarefa que você deseja excluir: ").capitalize()
+                        deletar_tarefa = input("Digite toda a tarefa que você deseja excluir: ").strip().lower()
                         if deletar_tarefa in semana[dia_deletar]:
                             semana[dia_deletar].remove(deletar_tarefa)
                             print(semana)
@@ -37,10 +37,10 @@ while True:
                     
                         
         case 4:
-            for dia_da_semana, semana in semana.items():
+            for dia_da_semana, tarefas  in semana.items():
                 print(f"{dia_da_semana}:") 
-                for tarefa in semana:
-                    print(f" - {semana}")
+                for tarefa in tarefas:
+                    print(f" - {tarefa}")
             
         case 0:
             break    
