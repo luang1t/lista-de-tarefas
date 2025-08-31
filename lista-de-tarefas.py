@@ -1,8 +1,7 @@
 import os
+
 semana = {"Segunda" : [],"Terça" : [],"Quarta" : [],"Quinta" : [],"Sexta" : [],"Sabado" : [],"Domingo": []}
-
 while True:
-
     print('='*13,"Menu", '='*13)
     print("""
     1 - Cadastrar Tarefa
@@ -60,8 +59,7 @@ while True:
                         remocao_tarefa = semana[dia_deletar].pop(deletar_tarefa)
                         print(f"Tarefa {remocao_tarefa} removida.")
                     else:
-                        print("Número inválido!")   
-                    
+                        print("Número inválido!")             
         case 3:
             dia_update = input("Digite qual dia da semana deseja atualizar a tarefa: ").capitalize().strip()
             if dia_update not in semana:
@@ -70,8 +68,6 @@ while True:
             if not semana[dia_update]:
                 print("Não há tarefas cadastradas")
                 continue
-
-            
             for indice, tarefa in enumerate(semana[dia_update], start = 0):
                 print(f"{dia_update.capitalize()}")
                 print(indice, " - ", tarefa)
@@ -85,8 +81,7 @@ while True:
                 update_tarefa = input("Digite a nova tarefa: ").strip().lower()
                 semana[dia_update][tarefa_indice] = update_tarefa      
             else:
-                print("Número inválido")        
-                  
+                print("Número inválido")           
         case 4:
             for dia_da_semana, tarefas in semana.items():
                 print(f"TAREFAS DE {dia_da_semana.upper()}:") 
